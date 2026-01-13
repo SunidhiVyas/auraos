@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================= ROOT ================= */
+.app-root {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0b1220, #000);
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= NEON BACKGROUND ================= */
+.neon-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.35;
+  animation: float 16s ease-in-out infinite;
+}
+
+.star.pink { background: #ff4fa3; top: 20%; left: 15%; }
+.star.cyan { background: #36e0ff; top: 60%; left: 65%; }
+.star.violet { background: #9d6cff; top: 40%; left: 40%; }
+
+.delay1 { animation-delay: 6s; }
+.delay2 { animation-delay: 12s; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-45px); }
+}
+
+/* ================= COMMON ================= */
+.neon-text {
+  background: linear-gradient(90deg, #ff4fa3, #36e0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon-border {
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 28px rgba(255,79,163,0.3);
+  backdrop-filter: blur(22px);
+}
+
+.neon-btn {
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 22px rgba(255,79,163,0.45);
+  color: white;
+  cursor: pointer;
+}
+
+/* ================= IDLE ================= */
+.idle-screen {
+  text-align: center;
+  position: relative;
+}
+
+.idle-title {
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+}
+
+.command-box {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.command-input {
+  width: 400px;
+  padding: 16px 22px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border-radius: 999px;
+  outline: none;
+}
+
+/* ================= THINKING ================= */
+.thinking-container {
+  width: 620px;
+}
+
+.thinking-box {
+  margin-top: 20px;
+  padding: 22px;
+}
+
+.thinking-line {
+  font-family: monospace;
+  margin-bottom: 10px;
+}
+
+.color-0 { color: #ff4fa3; }
+.color-1 { color: #36e0ff; }
+.color-2 { color: #9d6cff; }
+
+/* ================= DASHBOARD ================= */
+.dashboard {
+  width: 920px;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.stat-card {
+  padding: 20px;
+}
+
+.graphs {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.wave-path {
+  stroke-dasharray: 140;
+  animation: waveMove 2.5s linear infinite;
+}
+
+@keyframes waveMove {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -140; }
+}
